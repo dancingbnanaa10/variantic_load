@@ -68,7 +68,7 @@ addCss(cssCode);
         case 3:
             spinnerImg.setAttribute("src", "https://i.gifer.com/L6MI.gif");
             break;
-        case 3:
+        case 4:
             spinnerImg.setAttribute("src", "https://iili.io/JMyc1mQ.gif");
             break;
         // Add more cases for additional images or GIFs
