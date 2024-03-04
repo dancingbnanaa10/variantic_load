@@ -14,11 +14,11 @@
     'use strict';
 function biasedRandom() {
     var randomNumber = Math.random();
-    if (randomNumber < 0.3) {
+    if (randomNumber < 0.35) {
         return 1;
-    } else if (randomNumber < 0.6) {
+    } else if (randomNumber < 0.625) {
         return 2;
-    } else if (randomNumber < 0.9) {
+    } else if (randomNumber < 0.875) {
         return 3;
     } else {
         return 4;
