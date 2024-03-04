@@ -12,8 +12,17 @@
 
 (function() {
     'use strict';
-function getRandomOption() {
-    return Math.floor(Math.random() * 3) + 1;
+function biasedRandom() {
+    var randomNumber = Math.random();
+    if (randomNumber < 0.3) {
+        return 1;
+    } else if (randomNumber < 0.6) {
+        return 2;
+    } else if (randomNumber < 0.9) {
+        return 3;
+    } else {
+        return 4;
+    }
 }
 function addCss(cssCode) {
     var styleElement = document.createElement("style");
@@ -46,7 +55,7 @@ addCss(cssCode);
     var newDiv = document.createElement("div");
     newDiv.setAttribute("id", "new_load_elem");
     var spinnerImg = document.createElement("img");
-    var randomOption = getRandomOption();
+    var randomOption =biasedRandom();
     //In order to add img its mandatory to add spinnerImg.classList.add("spin"); .
         switch (randomOption) {
         case 1:
@@ -59,6 +68,9 @@ addCss(cssCode);
         case 3:
             spinnerImg.setAttribute("src", "https://i.gifer.com/L6MI.gif");
             break;
+        case 3:
+            spinnerImg.setAttribute("src", "https://iili.io/JMyc1mQ.gif");
+            break;
         // Add more cases for additional images or GIFs
         default:
            alert('IMG switch_case error');
@@ -68,6 +80,4 @@ addCss(cssCode);
     load_cog.appendChild(newDiv);
 }
 setTimeout(loading_dog, 3000);
-
-
 })();
