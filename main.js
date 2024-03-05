@@ -49,7 +49,8 @@ var cssCode =
 ;
 addCss(cssCode);
     function loading_dog() {
-    var load_cog = document.getElementsByClassName("loading-cog")[0];
+    //var load_cog = document.getElementsByClassName("loading-cog");
+    var load_cog = document.querySelector('.loading-cog');
     load_cog.style.fontSize = '0';
     load_cog.style.opacity = "1";
     var newDiv = document.createElement("div");
@@ -79,5 +80,34 @@ addCss(cssCode);
     newDiv.appendChild(spinnerImg);
     load_cog.appendChild(newDiv);
 }
-setTimeout(loading_dog, 3000);
+//setTimeout(loading_dog, 3000);
+
+// Function to handle mutations
+function mutationCallback(mutationsList, observer) {
+    for(let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            // Check if a node with class 'loading-cog' has been added
+            const loadingCog = document.querySelector('.loading-cog');
+            if (loadingCog) {
+                // Modify the content or style of the span
+                alert ('loading-cog active');
+                loading_dog()
+                // Add more modifications as needed
+                observer.disconnect(); // Stop observing once the span is found
+                break;
+            }
+        }
+    }
+}
+
+// Create a new observer instance
+const observer = new MutationObserver(mutationCallback);
+
+// Options for the observer (which mutations to observe)
+const config = { childList: true, subtree: true };
+
+// Start observing the target node for configured mutations
+observer.observe(document.body, config);
+
+
 })();
