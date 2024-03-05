@@ -90,7 +90,6 @@ function mutationCallback(mutationsList, observer) {
             const loadingCog = document.querySelector('.loading-cog');
             if (loadingCog) {
                 // Modify the content or style of the span
-                alert ('loading-cog active');
                 loading_dog()
                 // Add more modifications as needed
                 observer.disconnect(); // Stop observing once the span is found
